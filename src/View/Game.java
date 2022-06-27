@@ -13,12 +13,11 @@ public class Game extends javax.swing.JPanel {
     private void initComponents() {
 
         btnatras_admin_editPreguntas = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 470));
@@ -29,48 +28,42 @@ public class Game extends javax.swing.JPanel {
         btnatras_admin_editPreguntas.setContentAreaFilled(false);
         add(btnatras_admin_editPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
 
+        jLabel3.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Arg[]");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 74, 400, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-game.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 440, 50));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-jugar.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-siguiente.png"))); // NOI18N
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 170, 50));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 230, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-nivel.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 250, 40));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 830, 80));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-nombre.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 250, 40));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 150, 30));
-
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 160, 30));
+        jPanel1.setBackground(new java.awt.Color(22, 2, 30));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 0, 56), 1, true));
+        jPanel1.setDoubleBuffered(false);
+        jPanel1.setEnabled(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 780, 240));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 890, 470));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnatras_admin_editPreguntas;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
