@@ -67,8 +67,8 @@ public class Incio extends javax.swing.JPanel {
         btnConfiguracion.setContentAreaFilled(false);
         add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 70, 70));
 
-        jlbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logocirculofin.png"))); // NOI18N
-        add(jlbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 230));
+        jlbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logocirculofin_Chiquito.png"))); // NOI18N
+        add(jlbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 140));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 850, 470));
