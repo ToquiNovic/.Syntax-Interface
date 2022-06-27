@@ -52,20 +52,20 @@ public class Incio extends javax.swing.JPanel {
         btnManual_Usuario.setContentAreaFilled(false);
         add(btnManual_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 60, 60));
 
-        btnEstudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/libro (1).png"))); // NOI18N
+        btnEstudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/libro.png"))); // NOI18N
         btnEstudio.setBorderPainted(false);
         btnEstudio.setContentAreaFilled(false);
-        add(btnEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 70, 70));
+        add(btnEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 70, 60));
 
         btnT_Puntuacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/evaluar (1).png"))); // NOI18N
         btnT_Puntuacion.setBorderPainted(false);
         btnT_Puntuacion.setContentAreaFilled(false);
-        add(btnT_Puntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
+        add(btnT_Puntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
         btnConfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/configuraciones.png"))); // NOI18N
         btnConfiguracion.setBorderPainted(false);
         btnConfiguracion.setContentAreaFilled(false);
-        add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 70, 70));
+        add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 70, 70));
 
         jlbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logocirculofin_Chiquito.png"))); // NOI18N
         add(jlbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 140));

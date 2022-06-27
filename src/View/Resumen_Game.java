@@ -26,17 +26,22 @@ public class Resumen_Game extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 470));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Logocirculofin_Chiquito.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 140, 130));
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 890, 470));
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 380));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

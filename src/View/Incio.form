@@ -57,14 +57,14 @@
     <Component class="javax.swing.JButton" name="btnEstudio">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Image/libro (1).png"/>
+          <Image iconType="3" name="/Image/libro.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="360" width="70" height="70"/>
+          <AbsoluteConstraints x="310" y="360" width="70" height="60"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -78,7 +78,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="460" y="360" width="-1" height="-1"/>
+          <AbsoluteConstraints x="460" y="350" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -92,7 +92,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="640" y="370" width="70" height="70"/>
+          <AbsoluteConstraints x="640" y="350" width="70" height="70"/>
         </Constraint>
       </Constraints>
     </Component>
