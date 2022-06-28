@@ -1,19 +1,29 @@
-
 package View;
+
+import javax.swing.JButton;
 
 public class Game extends javax.swing.JPanel {
 
- 
     public Game() {
         initComponents();
+    }
+
+    public void setArgs(String args[]) {
+        textArgs.setText("args[0]: " + args[0]);
+        textArgs1.setText("args[1]: " + args[1]);
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnatras_admin_editPreguntas = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        textArgs1 = new javax.swing.JLabel();
+        textArgs = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -23,16 +33,22 @@ public class Game extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(840, 470));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnatras_admin_editPreguntas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
-        btnatras_admin_editPreguntas.setBorderPainted(false);
-        btnatras_admin_editPreguntas.setContentAreaFilled(false);
-        add(btnatras_admin_editPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Arg[]");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 74, 400, 50));
+        textArgs1.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
+        textArgs1.setForeground(new java.awt.Color(255, 255, 255));
+        textArgs1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textArgs1.setText("args[1]: ");
+        add(textArgs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 220, 50));
+
+        textArgs.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
+        textArgs.setForeground(new java.awt.Color(255, 255, 255));
+        textArgs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textArgs.setText("args[0]: ");
+        add(textArgs, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 220, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-game.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 440, 50));
@@ -43,7 +59,7 @@ public class Game extends javax.swing.JPanel {
         add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 230, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 830, 80));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 790, 80));
 
         jPanel1.setBackground(new java.awt.Color(22, 2, 30));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 0, 56), 1, true));
@@ -59,11 +75,12 @@ public class Game extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton btnatras_admin_editPreguntas;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel textArgs;
+    private javax.swing.JLabel textArgs1;
     // End of variables declaration//GEN-END:variables
 }
