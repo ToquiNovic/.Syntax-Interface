@@ -3,12 +3,18 @@ package model;
 public class Juego {
     
     public static final String PASSWORD = "1234";
+    public static final int CANTIDAD_PREGUNTAS = 4;
 
+    private String[] nameQuestions;
     private String name;
     private int countErrors;
     private int countCorrec;
     private int nivel;
-    
+
+    public void generarPreguntas() {
+        nameQuestions = new String[CANTIDAD_PREGUNTAS];
+    }
+
     public String getName() {
         return name;
     }
@@ -47,5 +53,6 @@ public class Juego {
         countErrors = 0;
         countCorrec = 0;
         nivel = 0;
+        nameQuestions = null;
     }
 }

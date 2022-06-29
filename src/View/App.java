@@ -70,12 +70,10 @@ public class App extends JFrame {
             cardLayout.show(getContentPane(), "inicio");
         });
         previousGame.getBtnPlay().addActionListener(l -> {
-            if (previousGame.isOk()) {
+            if (isOk()) {
                 previousGame.clearView();
                 juego.setName(previousGame.getNamePlayer());
                 cardLayout.show(getContentPane(), "game");
-            } else {
-                JOptionPane.showMessageDialog(this, "Ingresa tu nombre!");
             }
         });
 
@@ -130,6 +128,19 @@ public class App extends JFrame {
         add(configuracion, "config");
         add(editTema, "editTema");
         add(editPregunta, "editPregunta");
+    }
+
+    private boolean isOk() {
+        if(!previousGame.isOk()) {
+            JOptionPane.showMessageDialog(this, "Ingresa el nombre!");
+            return false;
+        }
+        if(Read.getCantidadLevel(previousGame.getLevelGame()) < Juego.CANTIDAD_PREGUNTAS) {
+            JOptionPane.showMessageDialog(this, "No hay suficientes preguntas en ese Nivel!");
+            return false;    
+        }
+        
+        return true;
     }
 
     private CardLayout cardLayout;

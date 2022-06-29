@@ -87,4 +87,17 @@ public class Read {
     public static int getCantidadQuestionsLevel2() {
         return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_2);
     }
+
+    public static int getCantidadLevel(int level) {
+        switch (level) {
+            case 0:
+                return getCantidadQuestionsLevel0();
+            case 1:
+                return getCantidadQuestionsLevel1();
+            case 2:
+                return getCantidadQuestionsLevel2();
+            default:
+                throw new AssertionError();
+        }
+    }
 }
