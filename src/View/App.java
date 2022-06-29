@@ -105,12 +105,22 @@ public class App extends JFrame {
         configuracion.getBtnTema().addActionListener(l-> {
             cardLayout.show(getContentPane(), "editTema");
         });
+        configuracion.getBtnPregunta().addActionListener(l -> {
+            cardLayout.show(getContentPane(), "editPregunta");
+        });
         
         editTema = new EditTema();
         editTema.getBtnBack().addActionListener(l -> {
             editTema.clearView();
             cardLayout.show(getContentPane(), "config");
         });
+        
+        editPregunta = new EditPregunta();
+        editPregunta.getBtnBack().addActionListener(l -> {
+            editPregunta.clearView();
+            cardLayout.show(getContentPane(), "config");
+        });
+        
 
         add(inicio, "inicio");
         add(previousGame, "configGame");
@@ -119,6 +129,7 @@ public class App extends JFrame {
         add(teoriaLibros, "study");
         add(configuracion, "config");
         add(editTema, "editTema");
+        add(editPregunta, "editPregunta");
     }
 
     private CardLayout cardLayout;
@@ -130,6 +141,7 @@ public class App extends JFrame {
     private TeoriaLibros teoriaLibros;
     private Configuracion configuracion;
     private EditTema editTema;
+    private EditPregunta editPregunta;
 
     private Juego juego;
 
