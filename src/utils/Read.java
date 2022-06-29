@@ -71,4 +71,20 @@ public class Read {
 
         return returnData;
     }
+
+    public static int getCantidadFiles(String path) {
+        return new File(path).listFiles().length;
+    }
+
+    public static int getCantidadQuestionsLevel0() {
+        return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_0);
+    }
+
+    public static  int getCantidadQuestionsLevel1() {
+        return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_1);
+    }
+
+    public static int getCantidadQuestionsLevel2() {
+        return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_2);
+    }
 }

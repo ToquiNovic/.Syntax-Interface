@@ -1,0 +1,10 @@
+package questions.java.level_0;
+
+public class Quinta {
+    public static void main(String[] args) {
+        int a = Integer.parseInt(args[0]);
+        int b = Integer.parseInt(args[1]);
+
+        System.out.println(a + b);
+    }
+}

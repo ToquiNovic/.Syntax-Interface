@@ -1,13 +1,10 @@
 package View;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import utils.Const;
 import utils.Copy;
+import utils.Read;
 import utils.Tipo;
 
 public class EditPregunta extends javax.swing.JPanel {
@@ -44,7 +42,7 @@ public class EditPregunta extends javax.swing.JPanel {
         fileImg = null;
         fileJava = null;
     }
-    
+
     public void setTextInputQuestionName(String name) {
         inputQuestionName.setText(name);
     }
@@ -87,6 +85,7 @@ public class EditPregunta extends javax.swing.JPanel {
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
             ImageIcon imageIcon = new ImageIcon(bufferedImage);
+            viewImg.setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());
             viewImg.setIcon(imageIcon);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No se puede previsualizar la imagen!");
@@ -119,11 +118,11 @@ public class EditPregunta extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         selectNivel = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
         viewImg = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         viewJava = new javax.swing.JTextArea();
@@ -150,22 +149,17 @@ public class EditPregunta extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 140, 50));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/eliminar.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 180, 50));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 140, 50));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/consultar.png"))); // NOI18N
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 190, 50));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 190, 50));
 
         selectNivel.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         selectNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Medio", "Dificil" }));
@@ -190,7 +184,9 @@ public class EditPregunta extends javax.swing.JPanel {
         add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 170, 50));
 
         viewImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        add(viewImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 390, 240));
+        jScrollPane2.setViewportView(viewImg);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 390, 240));
 
         viewJava.setEditable(false);
         viewJava.setColumns(20);
@@ -211,10 +207,6 @@ public class EditPregunta extends javax.swing.JPanel {
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 470));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void selectNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNivelActionPerformed
         // TODO add your handling code here:
@@ -256,7 +248,7 @@ public class EditPregunta extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (isCorrect()) {
             String nombreArchivo = getNombreArchivo(fileJava.getName());
-            
+
             File copyFileImg = new File(Const.getPathImg(selectNivel.getSelectedIndex()) + nombreArchivo + "." + getTipoImage(fileImg.getName()));
             File copyFileJava = new File(Const.getPathJava(selectNivel.getSelectedIndex()) + fileJava.getName());
 
@@ -267,19 +259,29 @@ public class EditPregunta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(
+                this,
+                "Nivel Facil: " + Read.getCantidadQuestionsLevel0() + "\n"
+                + "Nivel Medio: " + Read.getCantidadQuestionsLevel1() + "\n"
+                + "Nivel Dificil: " + Read.getCantidadQuestionsLevel2(),
+                "Cantidad preguntas por Nivel",
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JTextField inputQuestionName;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> selectNivel;
     private javax.swing.JLabel viewImg;
     private javax.swing.JTextArea viewJava;
