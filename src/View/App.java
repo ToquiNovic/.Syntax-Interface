@@ -58,6 +58,11 @@ public class App extends JFrame {
         inicio.getBtnUserManual().addActionListener(l -> {
             Read.openPdf(Const.PATH_USER_MANUAL);
         });
+        inicio.getBtnConfig().addActionListener(l -> {
+            if (checkPassword()) {
+                cardLayout.show(getContentPane(), "config");
+            }
+        });
 
         previousGame = new PreviousGame();
         previousGame.getBtnBack().addActionListener(l -> {
@@ -93,11 +98,27 @@ public class App extends JFrame {
             cardLayout.show(getContentPane(), "inicio");
         });
 
+        configuracion = new Configuracion();
+        configuracion.getBtnBack().addActionListener(l -> {
+            cardLayout.show(getContentPane(), "inicio");
+        });
+        configuracion.getBtnTema().addActionListener(l-> {
+            cardLayout.show(getContentPane(), "editTema");
+        });
+        
+        editTema = new EditTema();
+        editTema.getBtnBack().addActionListener(l -> {
+            editTema.clearView();
+            cardLayout.show(getContentPane(), "config");
+        });
+
         add(inicio, "inicio");
         add(previousGame, "configGame");
         add(game, "game");
         add(score, "score");
         add(teoriaLibros, "study");
+        add(configuracion, "config");
+        add(editTema, "editTema");
     }
 
     private CardLayout cardLayout;
@@ -107,6 +128,8 @@ public class App extends JFrame {
     private Puntaje score;
     private Game game;
     private TeoriaLibros teoriaLibros;
+    private Configuracion configuracion;
+    private EditTema editTema;
 
     private Juego juego;
 
