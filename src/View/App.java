@@ -3,12 +3,15 @@ package View;
 import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import model.Juego;
 import utils.Const;
+import utils.Exec;
 import utils.Read;
+import utils.Write;
 
 public class App extends JFrame {
 
@@ -38,6 +41,8 @@ public class App extends JFrame {
 
     private void initComponents() {
         juego = new Juego();
+        random = new Random();
+        args = new String[2];
 
         cardLayout = new CardLayout();
         setLayout(cardLayout);
@@ -71,8 +76,14 @@ public class App extends JFrame {
         });
         previousGame.getBtnPlay().addActionListener(l -> {
             if (isOk()) {
-                previousGame.clearView();
                 juego.setName(previousGame.getNamePlayer());
+                juego.generarPreguntas(previousGame.getLevelGame());
+                juego.setNivel(previousGame.getLevelGame());
+                String question = juego.getQuestion();
+                generateArgs();
+                game.setArgs(args);
+                game.setImage(Read.getImgFromName(question, juego.getNivel()));
+                previousGame.clearView();
                 cardLayout.show(getContentPane(), "game");
             }
         });
@@ -82,7 +93,36 @@ public class App extends JFrame {
             int resul = JOptionPane.showConfirmDialog(this, "Seguro deseas salir perderas el progreso!");
             if (resul == 0) {
                 juego.clear();
+                game.clearView();
                 cardLayout.show(getContentPane(), "inicio");
+            }
+        });
+        game.getBtnNext().addActionListener(l -> {
+            if (game.isOk()) {
+
+                if (Exec.execJavaFile(juego.getNivel(), juego.getQuestionAnterior(), args).equals(game.getAnswer())) {
+                    JOptionPane.showMessageDialog(this, "Respuesta Correcta!");
+                    juego.countCorrec();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Respues incorrecta!");
+                    juego.countError();
+                }
+
+                if (juego.isOver()) {
+                    JOptionPane.showMessageDialog(this, juego.getScoreFormat(), "Juego Terminado!", JOptionPane.INFORMATION_MESSAGE);
+                    game.clearView();
+                    Write.saveScore(juego.getScore());
+                    juego.clear();
+                    cardLayout.show(getContentPane(), "inicio");
+                } else {
+                    String question = juego.getQuestion();
+
+                    generateArgs();
+                    game.setArgs(args);
+                    game.clearInputAnswer();
+                    game.setImage(Read.getImgFromName(question, juego.getNivel()));
+                }
+
             }
         });
 
@@ -100,25 +140,24 @@ public class App extends JFrame {
         configuracion.getBtnBack().addActionListener(l -> {
             cardLayout.show(getContentPane(), "inicio");
         });
-        configuracion.getBtnTema().addActionListener(l-> {
+        configuracion.getBtnTema().addActionListener(l -> {
             cardLayout.show(getContentPane(), "editTema");
         });
         configuracion.getBtnPregunta().addActionListener(l -> {
             cardLayout.show(getContentPane(), "editPregunta");
         });
-        
+
         editTema = new EditTema();
         editTema.getBtnBack().addActionListener(l -> {
             editTema.clearView();
             cardLayout.show(getContentPane(), "config");
         });
-        
+
         editPregunta = new EditPregunta();
         editPregunta.getBtnBack().addActionListener(l -> {
             editPregunta.clearView();
             cardLayout.show(getContentPane(), "config");
         });
-        
 
         add(inicio, "inicio");
         add(previousGame, "configGame");
@@ -130,16 +169,22 @@ public class App extends JFrame {
         add(editPregunta, "editPregunta");
     }
 
+    public void generateArgs() {
+        for (int i = 0; i < args.length; i++) {
+            args[i] = String.valueOf(random.nextInt(10));
+        }
+    }
+
     private boolean isOk() {
-        if(!previousGame.isOk()) {
+        if (!previousGame.isOk()) {
             JOptionPane.showMessageDialog(this, "Ingresa el nombre!");
             return false;
         }
-        if(Read.getCantidadLevel(previousGame.getLevelGame()) < Juego.CANTIDAD_PREGUNTAS) {
+        if (Read.getCantidadLevel(previousGame.getLevelGame()) < Juego.CANTIDAD_PREGUNTAS) {
             JOptionPane.showMessageDialog(this, "No hay suficientes preguntas en ese Nivel!");
-            return false;    
+            return false;
         }
-        
+
         return true;
     }
 
@@ -155,6 +200,8 @@ public class App extends JFrame {
     private EditPregunta editPregunta;
 
     private Juego juego;
+    private Random random;
+    private String[] args;
 
     public static void main(String[] args) {
         UIManager.put("OptionPane.messageFont", FONT);

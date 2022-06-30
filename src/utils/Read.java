@@ -71,6 +71,29 @@ public class Read {
 
         return returnData;
     }
+    
+    public static ArrayList<String> getNamesQuestions(int level) {
+        File[] files = new File(Const.getPathJava(level)).listFiles();
+        ArrayList<String> namesQuestions = new ArrayList<>();
+        
+        for(File file: files) {
+            namesQuestions.add(file.getName().split("\\.")[0]);
+        }
+        
+        return namesQuestions;
+    }
+    
+    public static File getImgFromName(String name, int level) {
+        File[] files = new File(Const.getPathImg(level)).listFiles();
+        
+        for(File file: files) {
+            if(file.getName().startsWith(name)) {
+                return file;
+            }
+        }
+        
+        return null;
+    }
 
     public static int getCantidadFiles(String path) {
         return new File(path).listFiles().length;

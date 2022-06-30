@@ -1,6 +1,12 @@
 package View;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class Game extends javax.swing.JPanel {
 
@@ -11,6 +17,44 @@ public class Game extends javax.swing.JPanel {
     public void setArgs(String args[]) {
         textArgs.setText("args[0]: " + args[0]);
         textArgs1.setText("args[1]: " + args[1]);
+    }
+
+    public void clearView() {
+        textArgs.setText("args[0]: ");
+        textArgs1.setText("args[1]: ");
+        inputAnswer.setText("");
+        displayImg.setIcon(null);
+    }
+
+    public void clearInputAnswer() {
+        inputAnswer.setText("");
+    }
+
+    public JButton getBtnNext() {
+        return btnNext;
+    }
+
+    public String getAnswer() {
+        return inputAnswer.getText();
+    }
+
+    public boolean isOk() {
+        if (inputAnswer.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Ingresa una respuesta!");
+            return false;
+        }
+        return true;
+    }
+
+    public void setImage(File file) {
+        try {
+            BufferedImage bufferedImage = ImageIO.read(file);
+            ImageIcon imageIcon = new ImageIcon(bufferedImage);
+            displayImg.setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());
+            displayImg.setIcon(imageIcon);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "No se pudo visualizar la imagen!");
+        }
     }
 
     public JButton getBtnBack() {
@@ -25,9 +69,12 @@ public class Game extends javax.swing.JPanel {
         textArgs1 = new javax.swing.JLabel();
         textArgs = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        inputAnswer = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        displayImg = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 470));
@@ -53,33 +100,50 @@ public class Game extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-game.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 440, 50));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-siguiente.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 230, 50));
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-siguiente.png"))); // NOI18N
+        btnNext.setBorderPainted(false);
+        btnNext.setContentAreaFilled(false);
+        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 230, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 790, 80));
 
-        jPanel1.setBackground(new java.awt.Color(22, 2, 30));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 0, 56), 1, true));
-        jPanel1.setDoubleBuffered(false);
-        jPanel1.setEnabled(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 780, 240));
+        jLabel3.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        jLabel3.setText("Respuesta: ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+
+        inputAnswer.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
+        inputAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputAnswerActionPerformed(evt);
+            }
+        });
+        add(inputAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 280, 30));
+
+        jScrollPane1.setBackground(new java.awt.Color(102, 102, 102));
+        jScrollPane1.setViewportView(displayImg);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 152, 780, 250));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 890, 470));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void inputAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAnswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputAnswerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JLabel displayImg;
+    private javax.swing.JTextField inputAnswer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel textArgs;
     private javax.swing.JLabel textArgs1;
     // End of variables declaration//GEN-END:variables
