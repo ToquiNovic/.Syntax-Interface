@@ -67,7 +67,6 @@ public class Puntaje extends javax.swing.JPanel {
                 "Nombre", "Nivel", "Correctas", "Incorrectas", "Puntaje"
             }
         ));
-        tableScore.setColumnSelectionAllowed(false);
         jScrollPane1.setViewportView(tableScore);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 720, 190));

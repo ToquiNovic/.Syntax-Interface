@@ -25,6 +25,38 @@ public class Read {
         return names;
     }
 
+    public static String[] listOfJava(int level) {
+        File[] files = new File(Const.getPathJava(level)).listFiles();
+
+        if (files.length == 0) {
+            return new String[0];
+        }
+
+        String[] names = new String[files.length];
+        for (int i = 0; i < files.length; i++) {
+            names[i] = files[i].getName();
+        }
+
+        return names;
+    }
+
+    public static File fileOfJavaLevel(String name, int level) {
+        File file = new File(Const.getPath(level, Tipo.JAVA) + name);
+
+        return file;
+    }
+    
+    public static File fileOfImgLevel(String name, int level){
+        File files[] = new File(Const.getPathImg(level)).listFiles();
+        
+        for (File file : files) {
+            if (file.getName().contains(name.split("\\.")[0])) {
+                return file;
+            }
+        }
+        return null;
+    }
+
     public static void openBooksPdf(String name) {
         File file = new File(Const.PATH_BOOKS + name);
         try {
@@ -71,27 +103,27 @@ public class Read {
 
         return returnData;
     }
-    
+
     public static ArrayList<String> getNamesQuestions(int level) {
         File[] files = new File(Const.getPathJava(level)).listFiles();
         ArrayList<String> namesQuestions = new ArrayList<>();
-        
-        for(File file: files) {
+
+        for (File file : files) {
             namesQuestions.add(file.getName().split("\\.")[0]);
         }
-        
+
         return namesQuestions;
     }
-    
+
     public static File getImgFromName(String name, int level) {
         File[] files = new File(Const.getPathImg(level)).listFiles();
-        
-        for(File file: files) {
-            if(file.getName().startsWith(name)) {
+
+        for (File file : files) {
+            if (file.getName().startsWith(name)) {
                 return file;
             }
         }
-        
+
         return null;
     }
 
@@ -103,7 +135,7 @@ public class Read {
         return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_0);
     }
 
-    public static  int getCantidadQuestionsLevel1() {
+    public static int getCantidadQuestionsLevel1() {
         return getCantidadFiles(Const.PATH_QUESTION_JAV_LEVEL_1);
     }
 

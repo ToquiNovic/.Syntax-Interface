@@ -78,14 +78,13 @@ public class EditPregunta extends javax.swing.JPanel {
     }
 
     private boolean isImage(String name) {
-        return name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".svg");
+        return name.endsWith(".png") || name.endsWith(".gif") || name.endsWith(".jpeg") || name.endsWith(".svg") || name.endsWith(".jpg");
     }
 
     private void setImage(File file) {
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
             ImageIcon imageIcon = new ImageIcon(bufferedImage);
-            viewImg.setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());
             viewImg.setIcon(imageIcon);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(this, "No se puede previsualizar la imagen!");
@@ -93,6 +92,7 @@ public class EditPregunta extends javax.swing.JPanel {
     }
 
     private void setJava(File file) {
+        viewJava.setText("");
         try {
             try ( FileReader fileReader = new FileReader(file);  BufferedReader bufferedReader = new BufferedReader(fileReader)) {
                 while (bufferedReader.ready()) {
@@ -120,6 +120,7 @@ public class EditPregunta extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         selectNivel = new javax.swing.JComboBox<>();
+        btnEliminar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -149,7 +150,7 @@ public class EditPregunta extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 140, 50));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 140, 50));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/consultar.png"))); // NOI18N
         jButton3.setBorderPainted(false);
@@ -159,7 +160,7 @@ public class EditPregunta extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 190, 50));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 190, 50));
 
         selectNivel.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         selectNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Medio", "Dificil" }));
@@ -170,8 +171,18 @@ public class EditPregunta extends javax.swing.JPanel {
         });
         add(selectNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 130, 40));
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/eliminar.png"))); // NOI18N
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 200, 50));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 810, 80));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 810, 80));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cargar.png"))); // NOI18N
         jButton4.setBorderPainted(false);
@@ -223,7 +234,7 @@ public class EditPregunta extends javax.swing.JPanel {
                         fileImg = fileChooser.getSelectedFile();
                         if (!isImage(fileImg.getName())) {
                             fileImg = null;
-                            JOptionPane.showMessageDialog(this, "Elige un archivo tipo .png, .gif, .jpeg o .svg");
+                            JOptionPane.showMessageDialog(this, "Elige un archivo tipo .png, .gif, .jpeg o .svg .jpg");
                         } else {
                             setImage(fileImg);
                         }
@@ -259,21 +270,56 @@ public class EditPregunta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private int getLevel() {
+        return selectNivel.getSelectedIndex();
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        JOptionPane.showMessageDialog(
+
+        String[] names = Read.listOfJava(getLevel());
+        String result = (String) JOptionPane.showInputDialog(
                 this,
                 "Nivel Facil: " + Read.getCantidadQuestionsLevel0() + "\n"
                 + "Nivel Medio: " + Read.getCantidadQuestionsLevel1() + "\n"
                 + "Nivel Dificil: " + Read.getCantidadQuestionsLevel2(),
                 "Cantidad preguntas por Nivel",
-                JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                names,
+                names[0]
+        );
+        if(result != null) {
+            setJava(Read.fileOfJavaLevel(result, getLevel()));
+            setImage(Read.fileOfImgLevel(result, getLevel()));
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        Object[] names = Read.listOfJava(getLevel());
+        if (names.length != 0) {
+            String nameSeled = (String) JOptionPane.showInputDialog(this, "Elige la Pregunta: \n \"Para ELIMINAR\"", "Eliminar Pregunta", JOptionPane.PLAIN_MESSAGE, null, names, names[0]);
+
+            if (nameSeled != null) {
+                int result = JOptionPane.showConfirmDialog(this, "Seguro deseas Eliminar: " + nameSeled);
+                if (result == 0) {
+                    File deleteFileJava = Read.fileOfJavaLevel(nameSeled, getLevel());
+                    deleteFileJava.delete();
+                    
+                    File deleteFileImg = Read.fileOfImgLevel(nameSeled, getLevel());
+                    deleteFileImg.delete();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay temas a Eliminar!");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JTextField inputQuestionName;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

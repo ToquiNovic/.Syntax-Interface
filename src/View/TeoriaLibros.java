@@ -9,14 +9,17 @@ public class TeoriaLibros extends javax.swing.JPanel {
  
     public TeoriaLibros() {
         initComponents();
-        initBooks();
     }
     
-    private void initBooks() {
+    public void initBooks() {
         String names[] = Read.listOfBooks();
         for (String name : names) {
             panelButtons.add(makeButton(name));
         }
+    }
+    
+    public void clearView() {
+        panelButtons.removeAll();
     }
     
     private JButton makeButton(String name) {

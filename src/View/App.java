@@ -24,8 +24,9 @@ public class App extends JFrame {
 
     private void init() {
         setTitle(".Syntax");
+        setBounds(100, 100, WIDTH, HEIGHT);
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
     }
 
     private boolean checkPassword() {
@@ -58,6 +59,7 @@ public class App extends JFrame {
             }
         });
         inicio.getBtnStudy().addActionListener(l -> {
+            teoriaLibros.initBooks();
             cardLayout.show(getContentPane(), "study");
         });
         inicio.getBtnUserManual().addActionListener(l -> {
@@ -133,6 +135,7 @@ public class App extends JFrame {
 
         teoriaLibros = new TeoriaLibros();
         teoriaLibros.getBtnBack().addActionListener(l -> {
+            teoriaLibros.clearView();
             cardLayout.show(getContentPane(), "inicio");
         });
 
