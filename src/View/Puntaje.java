@@ -1,9 +1,8 @@
 package View;
 
 import javax.swing.JButton;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
 import utils.Read;
+
 
 public class Puntaje extends javax.swing.JPanel {
 
@@ -16,13 +15,7 @@ public class Puntaje extends javax.swing.JPanel {
     }
 
     public void setData() {
-        TableModel model = tableScore.getModel();
-        Object[][] data = Read.getModelScore();
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
-                model.setValueAt(data[i][j], i, j);
-            }
-        }
+        textScore.setText(Read.getModelScore());
     }
 
     @SuppressWarnings("unchecked")
@@ -31,8 +24,8 @@ public class Puntaje extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableScore = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textScore = new javax.swing.JTextArea();
         Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 470));
@@ -46,30 +39,13 @@ public class Puntaje extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-puntaje.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 440, 50));
 
-        jScrollPane1.setBackground(new java.awt.Color(22, 2, 30));
+        textScore.setEditable(false);
+        textScore.setColumns(20);
+        textScore.setFont(new java.awt.Font("FreeMono", 0, 24)); // NOI18N
+        textScore.setRows(5);
+        jScrollPane2.setViewportView(textScore);
 
-        tableScore.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        tableScore.setFont(new java.awt.Font("FreeMono", 0, 18)); // NOI18N
-        tableScore.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Nivel", "Correctas", "Incorrectas", "Puntaje"
-            }
-        ));
-        jScrollPane1.setViewportView(tableScore);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 720, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 760, 290));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 890, 470));
@@ -80,7 +56,7 @@ public class Puntaje extends javax.swing.JPanel {
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableScore;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea textScore;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,10 +53,8 @@ public class App extends JFrame {
             cardLayout.show(getContentPane(), "configGame");
         });
         inicio.getBtnScore().addActionListener(l -> {
-            if (checkPassword()) {
-                score.setData();
-                cardLayout.show(getContentPane(), "score");
-            }
+            score.setData();
+            cardLayout.show(getContentPane(), "score");
         });
         inicio.getBtnStudy().addActionListener(l -> {
             teoriaLibros.initBooks();

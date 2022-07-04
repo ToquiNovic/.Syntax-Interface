@@ -75,10 +75,10 @@ public class Read {
         }
     }
 
-    public static Object[][] getModelScore() {
-
-        ArrayList<String[]> data = new ArrayList<>();
-
+    public static String getModelScore() {
+        StringBuilder returnData = new StringBuilder();
+        returnData.append(String.format("%s %12s %12s %12s %12s\n", "NOMBRE", "NIVEL", "CORRECTAS", "ERRORES", "PUNTAJE"));
+        
         File file = new File(Const.PATH_SCORE);
 
         try {
@@ -88,20 +88,14 @@ public class Read {
 
             try ( Scanner sc = new Scanner(file)) {
                 while (sc.hasNextLine()) {
-                    data.add(sc.nextLine().split(","));
+                    String []data = sc.nextLine().split(",");
+                    returnData.append(String.format("%s %12s %12s %12s %12s\n", data[0], data[1], data[2], data[3], data[4]));
                 }
             }
         } catch (IOException e) {
         }
 
-        Object[][] returnData = new Object[data.size()][5];
-
-        int index = 0;
-        for (String[] dat : data) {
-            returnData[index++] = dat;
-        }
-
-        return returnData;
+        return returnData.toString();
     }
 
     public static ArrayList<String> getNamesQuestions(int level) {
