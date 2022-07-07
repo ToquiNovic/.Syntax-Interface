@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.util.Random;
@@ -15,7 +16,7 @@ import utils.Write;
 
 public class App extends JFrame {
 
-    public static final Font FONT = new Font("Roboto Condensed", Font.PLAIN, 18);
+    public static final Font FONT = new Font("Roboto Condensed", Font.BOLD, 18);
 
     public App() throws HeadlessException {
         init();
@@ -206,6 +207,8 @@ public class App extends JFrame {
 
     public static void main(String[] args) {
         UIManager.put("OptionPane.messageFont", FONT);
+        UIManager.put("OptionPane.background", Color.CYAN);
+        UIManager.put("Panel.background", Color.CYAN);
         UIManager.put("OptionPane.buttonFont", FONT);
 
         App main = new App();
