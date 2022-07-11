@@ -2,3 +2,4 @@ Daniel,3,20,0,60
 DANIEL,1,10,0,20
 Alexandra,2,10,4,10
 Ana,0,4,0,4
+Toqui,0,3,1,3

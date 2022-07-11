@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,6 +22,7 @@ public class App extends JFrame {
     public App() throws HeadlessException {
         init();
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/Logocirculofin_Chiquito.png")));
     }
 
     private void init() {
@@ -91,7 +93,7 @@ public class App extends JFrame {
 
         game = new Game();
         game.getBtnBack().addActionListener(l -> {
-            int resul = JOptionPane.showConfirmDialog(this, "Seguro deseas salir perderas el progreso!");
+            int resul = JOptionPane.showConfirmDialog(this, "Seguro deseas salir, perderas el progreso!");
             if (resul == 0) {
                 juego.clear();
                 game.clearView();
@@ -105,7 +107,7 @@ public class App extends JFrame {
                     JOptionPane.showMessageDialog(this, "Respuesta Correcta!");
                     juego.countCorrec();
                 } else {
-                    JOptionPane.showMessageDialog(this, "Respues incorrecta!");
+                    JOptionPane.showMessageDialog(this, "Respuesta incorrecta!");
                     juego.countError();
                 }
 
@@ -207,8 +209,8 @@ public class App extends JFrame {
 
     public static void main(String[] args) {
         UIManager.put("OptionPane.messageFont", FONT);
-        UIManager.put("OptionPane.background", Color.CYAN);
-        UIManager.put("Panel.background", Color.CYAN);
+        UIManager.put("OptionPane.background", Color.TRANSLUCENT);
+        UIManager.put("Panel.background", Color.getHSBColor(6, 8, 33));
         UIManager.put("OptionPane.buttonFont", FONT);
 
         App main = new App();

@@ -179,10 +179,10 @@ public class EditPregunta extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 200, 50));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 200, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 810, 80));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 80));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cargar.png"))); // NOI18N
         jButton4.setBorderPainted(false);
@@ -204,11 +204,16 @@ public class EditPregunta extends javax.swing.JPanel {
         viewJava.setRows(5);
         jScrollPane1.setViewportView(viewJava);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 360, 240));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 360, 240));
 
         inputQuestionName.setEditable(false);
         inputQuestionName.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        add(inputQuestionName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 414, 220, 30));
+        inputQuestionName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputQuestionNameActionPerformed(evt);
+            }
+        });
+        add(inputQuestionName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 220, 30));
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,7 +221,7 @@ public class EditPregunta extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 470));
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNivelActionPerformed
@@ -313,6 +318,10 @@ public class EditPregunta extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No hay temas a Eliminar!");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void inputQuestionNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputQuestionNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputQuestionNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

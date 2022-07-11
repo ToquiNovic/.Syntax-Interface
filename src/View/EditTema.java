@@ -130,7 +130,7 @@ public class EditTema extends javax.swing.JPanel {
         add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 170, 50));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 880, 470));
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-16, 0, 900, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputOriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputOriginActionPerformed

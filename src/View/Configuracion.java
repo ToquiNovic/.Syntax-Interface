@@ -36,10 +36,10 @@ public class Configuracion extends javax.swing.JPanel {
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
         btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Admin.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 530, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 530, 50));
 
         btnPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Editar Preguntas (782 × 500 px).png"))); // NOI18N
         btnPregunta.setBorderPainted(false);
@@ -52,7 +52,7 @@ public class Configuracion extends javax.swing.JPanel {
         add(btnTema, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 420, 80));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 880, 470));
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-16, 0, 900, 470));
     }// </editor-fold>//GEN-END:initComponents
 
 
