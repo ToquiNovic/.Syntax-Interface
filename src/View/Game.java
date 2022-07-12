@@ -83,7 +83,7 @@ public class Game extends javax.swing.JPanel {
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
         btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         textArgs1.setFont(new java.awt.Font("Roboto Condensed", 1, 24)); // NOI18N
         textArgs1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,19 +98,19 @@ public class Game extends javax.swing.JPanel {
         add(textArgs, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 220, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-game.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 440, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 440, 50));
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/texto-siguiente.png"))); // NOI18N
         btnNext.setBorderPainted(false);
         btnNext.setContentAreaFilled(false);
-        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 230, 50));
+        add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 230, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 790, 80));
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
-        jLabel3.setText("Respuesta: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/textoRespuesta.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 380, 280, 110));
 
         inputAnswer.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         inputAnswer.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +118,7 @@ public class Game extends javax.swing.JPanel {
                 inputAnswerActionPerformed(evt);
             }
         });
-        add(inputAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 280, 30));
+        add(inputAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 280, 30));
 
         jScrollPane1.setBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(displayImg);

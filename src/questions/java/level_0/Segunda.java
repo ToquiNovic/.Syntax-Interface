@@ -5,3 +5,4 @@ public class Segunda {
         System.out.println(args[0]);
     }
 }
+

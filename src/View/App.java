@@ -18,6 +18,7 @@ import utils.Write;
 public class App extends JFrame {
 
     public static final Font FONT = new Font("Roboto Condensed", Font.BOLD, 18);
+    
 
     public App() throws HeadlessException {
         init();
@@ -208,9 +209,11 @@ public class App extends JFrame {
     private String[] args;
 
     public static void main(String[] args) {
+        
         UIManager.put("OptionPane.messageFont", FONT);
-        UIManager.put("OptionPane.background", Color.TRANSLUCENT);
-        UIManager.put("Panel.background", Color.getHSBColor(6, 8, 33));
+        UIManager.put("OptionPane.messageForeground", Color.WHITE);
+        UIManager.put("OptionPane.background", new Color (6, 8, 33));
+        UIManager.put("Panel.background", new Color (6, 8, 33));
         UIManager.put("OptionPane.buttonFont", FONT);
 
         App main = new App();

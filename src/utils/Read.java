@@ -89,7 +89,7 @@ public class Read {
             try ( Scanner sc = new Scanner(file)) {
                 while (sc.hasNextLine()) {
                     String []data = sc.nextLine().split(",");
-                    returnData.append(String.format("%12s %10s %10s %10s %10s\n", data[0], data[1], data[2], data[3], data[4]));
+                    returnData.append(String.format("%12s %15s %15s %20s %20s\n", data[0], data[1], data[2], data[3], data[4]));
                 }
             }
         } catch (IOException e) {

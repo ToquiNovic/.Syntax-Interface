@@ -1,5 +1,6 @@
-Daniel,3,20,0,60
-DANIEL,1,10,0,20
-Alexandra,2,10,4,10
-Ana,0,4,0,4
+Daniel,2,10,0,60
+Daniel,1,10,0,20
+Alexa,2,10,4,10
+Ana00,0,4,0,4
 Toqui,0,3,1,3
+Daniel1,0,0,4,0

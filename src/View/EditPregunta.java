@@ -137,10 +137,10 @@ public class EditPregunta extends javax.swing.JPanel {
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
         btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Editar Preguntas_chiquito.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 340, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 340, 50));
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/agregar.png"))); // NOI18N
         btnAdd.setBorderPainted(false);
@@ -182,7 +182,7 @@ public class EditPregunta extends javax.swing.JPanel {
         add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 200, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 80));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 1000, 80));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cargar.png"))); // NOI18N
         jButton4.setBorderPainted(false);
@@ -192,7 +192,7 @@ public class EditPregunta extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 170, 50));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 170, 40));
 
         viewImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jScrollPane2.setViewportView(viewImg);
@@ -213,12 +213,12 @@ public class EditPregunta extends javax.swing.JPanel {
                 inputQuestionNameActionPerformed(evt);
             }
         });
-        add(inputQuestionName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 220, 30));
+        add(inputQuestionName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 320, 30));
 
         jLabel3.setFont(new java.awt.Font("FreeMono", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NOMBRE PREGUNTA:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/textoNPregunta.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 420, 300, 40));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 470));

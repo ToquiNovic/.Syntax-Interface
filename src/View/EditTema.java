@@ -50,12 +50,12 @@ public class EditTema extends javax.swing.JPanel {
         btnatras_admin_editPreguntas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hacia-atras (1).png"))); // NOI18N
         btnatras_admin_editPreguntas.setBorderPainted(false);
         btnatras_admin_editPreguntas.setContentAreaFilled(false);
-        add(btnatras_admin_editPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+        add(btnatras_admin_editPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Editar Tema.png"))); // NOI18N
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 200, 50));
+        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 200, 50));
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/agregar.png"))); // NOI18N
         btnAgregar.setBorderPainted(false);
@@ -75,7 +75,7 @@ public class EditTema extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, 200, 50));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 200, 50));
 
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/consultar.png"))); // NOI18N
         btnConsultar.setBorderPainted(false);
@@ -85,10 +85,10 @@ public class EditTema extends javax.swing.JPanel {
                 btnConsultarActionPerformed(evt);
             }
         });
-        add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 210, 50));
+        add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 210, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Panel_Pregunta.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 830, 80));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 830, 80));
 
         jPanel1.setBackground(new java.awt.Color(22, 2, 30));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(36, 0, 56), 1, true));
@@ -117,7 +117,7 @@ public class EditTema extends javax.swing.JPanel {
         inputNombre.setEditable(false);
         jPanel1.add(inputNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 720, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 780, 240));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 760, 220));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cargar.png"))); // NOI18N
         jButton4.setBorderPainted(false);
@@ -127,10 +127,10 @@ public class EditTema extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 170, 50));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 170, 50));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Fondo.jpg"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-16, 0, 900, 470));
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-16, 0, 910, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputOriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputOriginActionPerformed

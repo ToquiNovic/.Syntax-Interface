@@ -74,7 +74,7 @@ public class Juego {
                 + "Nivel: " + nivel + "\n"
                 + "Correctas: " + countCorrec + "\n"
                 + "Incorrectas: " + countErrors + "\n"
-                + "Putaje: " + (countCorrec * (nivel + 1));
+                + "Puntaje: " + (countCorrec * (nivel + 1));
     }
 
     public void clear() {

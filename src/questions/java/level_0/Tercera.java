@@ -5,3 +5,4 @@ public class Tercera {
         System.out.println(args[1]);
     }
 }
+
